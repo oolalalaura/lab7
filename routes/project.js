@@ -2,7 +2,10 @@ var models = require('../models');
 
 exports.projectInfo = function(req, res) { 
   var projectID = req.params.id;
-
+    models.project
+    .find({"_id": projectID})
+    .sort('-date')
+    .exec(afterQuery);
   // query for the specific project and
   // call the following callback
 
